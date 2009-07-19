@@ -17,7 +17,8 @@ Source0: 	http://prdownloads.sourceforge.net/scintilla/scintilla%scintillaver.tg
 Source1:	scintilla.cmake
 Source2:	scintilla.pc.cmake
 BuildRoot: 	%{_tmppath}/%{name}-root
-BuildRequires: 	gtk+2-devel pkgconfig
+BuildRequires:	gtk+2-devel pkgconfig
+BuildRequires:	cmake >= 2.6
 
 %description
 Scintilla is a free source code editing component. As well as features
