@@ -1,7 +1,7 @@
 %define name 	scintilla
 %define version 1.79
-%define release %mkrel 1
-%define libname %mklibname scintilla 0
+%define release %mkrel 2
+%define libname %mklibname scintilla 1
 %define develname %mklibname -d scintilla
 
 %define scintillaver %(echo %{version} | sed -e 's/\\.//')
@@ -30,6 +30,7 @@ tips.
 %package -n %{libname}
 Summary:	Scintilla shared libraries
 Group:		System/Servers
+Obsoletes:      %{_lib}scintilla0 < 1.79-2
 
 %description -n %{libname}
 This package contains scintilla shared libraries.
@@ -39,6 +40,7 @@ Group:		Development/C
 Summary:	Headers and static lib for scintilla development
 Requires:	%{libname} = %{version}-%{release}
 Provides:	scintilla-devel = %{version}-%{release}
+Conflicts:	%{_lib}scintilla0 < 1.79-2
 
 %description -n	%{develname}
 Install this package if you want do compile applications using the
@@ -63,11 +65,11 @@ rm -fr $RPM_BUILD_ROOT
 
 %files -n %{libname}
 %defattr(644, root, root)
-%{_libdir}/libscintilla.so
-%{_libdir}/libscintilla.so.1.79
+%{_libdir}/libscintilla.so.1*
 
 %files -n %{develname}
 %defattr(644, root, root)
 %attr(755, root, root) %dir %{_includedir}/scintilla
+%{_libdir}/libscintilla.so
 %{_libdir}/pkgconfig/scintilla.pc
 %{_includedir}/scintilla/*.h
