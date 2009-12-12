@@ -1,7 +1,7 @@
 %define name 	scintilla
-%define version 1.79
-%define release %mkrel 2
-%define libname %mklibname scintilla 1
+%define version 2.01
+%define release %mkrel 1
+%define libname %mklibname scintilla 2
 %define develname %mklibname -d scintilla
 
 %define scintillaver %(echo %{version} | sed -e 's/\\.//')
@@ -65,7 +65,7 @@ rm -fr $RPM_BUILD_ROOT
 
 %files -n %{libname}
 %defattr(644, root, root)
-%{_libdir}/libscintilla.so.1*
+%{_libdir}/libscintilla.so.2*
 
 %files -n %{develname}
 %defattr(644, root, root)
