@@ -48,8 +48,8 @@ scintilla library.
 
 %prep
 %setup -q -n scintilla
-cp %SOURCE1 $RPM_BUILD_DIR/scintilla/CMakeLists.txt
-cp %SOURCE2 $RPM_BUILD_DIR/scintilla/scintilla.pc.cmake
+cp %SOURCE1 %{_builddir}/scintilla/CMakeLists.txt
+cp %SOURCE2 %{_builddir}/scintilla/scintilla.pc.cmake
 
 %build
 %{cmake}
