@@ -1,6 +1,6 @@
 %define name 	scintilla
 %define version 3.1.0
-%define release 1
+%define release 2
 %define major 3
 %define libname %mklibname scintilla %{major}
 %define develname %mklibname -d scintilla
@@ -17,7 +17,7 @@ Url: 		http://www.scintilla.org/index.html
 Source0: 	http://prdownloads.sourceforge.net/scintilla/scintilla%{scintillaver}.tgz
 Source1:	scintilla.cmake
 Source2:	scintilla.pc.cmake
-BuildRequires:	gtk+2-devel pkgconfig
+BuildRequires:	gtk+3-devel pkgconfig
 BuildRequires:	cmake >= 2.6
 
 %description
