@@ -1,10 +1,11 @@
 %define name 	scintilla
-%define version 2.02
-%define release %mkrel 2
-%define libname %mklibname scintilla 2
+%define version 3.1.0
+%define release 1
+%define major 3
+%define libname %mklibname scintilla %{major}
 %define develname %mklibname -d scintilla
 
-%define scintillaver %(echo %{version} | sed -e 's/\\.//')
+%define scintillaver %(echo %{version} | sed -e 's/\\.//g')
 
 Summary: 	Free source code editing component
 Name: 		%{name}
@@ -13,10 +14,9 @@ Release: 	%{release}
 License: 	BSD
 Group: 		Editors
 Url: 		http://www.scintilla.org/index.html
-Source0: 	http://prdownloads.sourceforge.net/scintilla/scintilla%scintillaver.tgz
+Source0: 	http://prdownloads.sourceforge.net/scintilla/scintilla%{scintillaver}.tgz
 Source1:	scintilla.cmake
 Source2:	scintilla.pc.cmake
-BuildRoot: 	%{_tmppath}/%{name}-root
 BuildRequires:	gtk+2-devel pkgconfig
 BuildRequires:	cmake >= 2.6
 
@@ -30,7 +30,6 @@ tips.
 %package -n %{libname}
 Summary:	Scintilla shared libraries
 Group:		System/Servers
-Obsoletes:      %{_lib}scintilla0 < 1.79-2
 
 %description -n %{libname}
 This package contains scintilla shared libraries.
@@ -38,9 +37,8 @@ This package contains scintilla shared libraries.
 %package -n	%{develname}
 Group:		Development/C
 Summary:	Headers and static lib for scintilla development
-Requires:	%{libname} = %{version}-%{release}
-Provides:	scintilla-devel = %{version}-%{release}
-Conflicts:	%{_lib}scintilla0 < 1.79-2
+Requires:	%{libname} = %{version}
+Provides:	scintilla-devel = %{EVRD}
 
 %description -n	%{develname}
 Install this package if you want do compile applications using the
@@ -53,23 +51,19 @@ cp %SOURCE2 %{_builddir}/scintilla/scintilla.pc.cmake
 
 %build
 %{cmake}
-%make
+make
 
 %install
-rm -fr $RPM_BUILD_ROOT
-cd build
-%{makeinstall_std}
-
-%clean
-rm -fr $RPM_BUILD_ROOT
+pushd build
+%makeinstall_std
+popd
 
 %files -n %{libname}
-%defattr(644, root, root)
-%{_libdir}/libscintilla.so.2*
+%{_libdir}/libscintilla.so.%{major}*
 
 %files -n %{develname}
-%defattr(644, root, root)
-%attr(755, root, root) %dir %{_includedir}/scintilla
+%dir %{_includedir}/scintilla
 %{_libdir}/libscintilla.so
 %{_libdir}/pkgconfig/scintilla.pc
 %{_includedir}/scintilla/*.h
+%doc License.txt
