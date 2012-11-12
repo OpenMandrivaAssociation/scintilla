@@ -1,0 +1,4 @@
+sources:
+  "scintilla310.tgz:"	a09f83d421dd5e898e01bd9dc7c40e0377f2141a
+  "scintilla.cmake:"	6f2aa46bb879ea557a8d16f8f4988607c1af836c
+  "scintilla.pc.cmake:"	2c46353f0103f4c88850b875ac18d092a5390372
