@@ -1,6 +1,6 @@
 %define name 	scintilla
-%define version 3.1.0
-%define release 2
+%define version 3.2.2
+%define release 0
 %define major 3
 %define libname %mklibname scintilla %{major}
 %define develname %mklibname -d scintilla
@@ -67,3 +67,38 @@ popd
 %{_libdir}/pkgconfig/scintilla.pc
 %{_includedir}/scintilla/*.h
 %doc License.txt
+
+
+%changelog
+* Tue Oct  2 2012 Sergey Sokolov <sokol@mtik.ru> 3.2.2-0
+- update to 3.2.2
+
+* Mon May 14 2012 Dmitry Mikhirev <dmikhirev@mandriva.org> 3.1.0-2
++ Revision: 798793
+- use gtk+3 instead gtk+2
+- update to 3.1.0
+
+* Tue Dec 07 2010 Oden Eriksson <oeriksson@mandriva.com> 2.02-2mdv2011.0
++ Revision: 614825
+- the mass rebuild of 2010.1 packages
+
+* Fri Feb 12 2010 Sandro Cazzaniga <kharec@mandriva.org> 2.02-1mdv2010.1
++ Revision: 505083
+- update to 202
+
+* Sat Dec 12 2009 Funda Wang <fwang@mandriva.org> 2.01-1mdv2010.1
++ Revision: 477834
+- new version 2.01
+
+* Tue Oct 27 2009 Funda Wang <fwang@mandriva.org> 1.79-2mdv2010.0
++ Revision: 459454
+- move so file into devel package
+
+* Mon Jul 20 2009 Raphaël Gertz <rapsys@mandriva.org> 1.79-1mdv2010.0
++ Revision: 398016
+- Fix install path
+- Add cmake dep
+- Import new scintilla library
+  Use an alternative cmake build system
+- Created package structure for scintilla.
+
