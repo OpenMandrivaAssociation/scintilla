@@ -1,6 +1,6 @@
 %define name 	scintilla
 %define version 3.2.2
-%define release 0
+%define release 1
 %define major 3
 %define libname %mklibname scintilla %{major}
 %define develname %mklibname -d scintilla
