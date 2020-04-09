@@ -1,6 +1,4 @@
-%define name 	scintilla
-%define version 3.2.2
-%define release 1
+%define _version 432
 %define major 3
 %define libname %mklibname scintilla %{major}
 %define develname %mklibname -d scintilla
@@ -8,13 +6,14 @@
 %define scintillaver %(echo %{version} | sed -e 's/\\.//g')
 
 Summary: 	Free source code editing component
-Name: 		%{name}
-Version: 	%{version}
-Release: 	%{release}
+Name: 		scintilla
+Version: 	4.3.2
+Release: 	1
 License: 	BSD
 Group: 		Editors
 Url: 		http://www.scintilla.org/index.html
-Source0: 	http://prdownloads.sourceforge.net/scintilla/scintilla%{scintillaver}.tgz
+Source0:  https://www.scintilla.org/%{name}%{_version}.tgz
+#Source0: 	http://sourceforge.net/project/scintilla/scintilla%{_version}.tgz
 Source1:	scintilla.cmake
 Source2:	scintilla.pc.cmake
 BuildRequires:	gtk+3-devel pkgconfig
