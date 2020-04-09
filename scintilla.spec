@@ -45,17 +45,16 @@ scintilla library.
 
 %prep
 %setup -q -n scintilla
-cp %SOURCE1 %{_builddir}/scintilla/CMakeLists.txt
-cp %SOURCE2 %{_builddir}/scintilla/scintilla.pc.cmake
+#cp %SOURCE1 %{_builddir}/scintilla/CMakeLists.txt
+#cp %SOURCE2 %{_builddir}/scintilla/scintilla.pc.cmake
 
 %build
-%{cmake}
-make
+%cmake
+%make_build
 
 %install
-pushd build
-%makeinstall_std
-popd
+
+%make_install
 
 %files -n %{libname}
 %{_libdir}/libscintilla.so.%{major}*
