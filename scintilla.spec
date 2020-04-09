@@ -49,6 +49,8 @@ cp %SOURCE1 %{_builddir}/scintilla/CMakeLists.txt
 cp %SOURCE2 %{_builddir}/scintilla/scintilla.pc.cmake
 
 %build
+export CC=gcc
+export CXX=g++
 %{cmake}
 make
 
