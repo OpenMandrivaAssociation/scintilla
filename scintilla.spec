@@ -1,4 +1,4 @@
-%define _version 432
+%define _version 446
 %define major 3
 %define libname %mklibname scintilla %{major}
 %define develname %mklibname -d scintilla
@@ -7,7 +7,7 @@
 
 Summary: 	Free source code editing component
 Name: 		scintilla
-Version: 	4.3.2
+Version: 	4.4.6
 Release: 	1
 License: 	BSD
 Group: 		Editors
@@ -49,12 +49,12 @@ cp %SOURCE1 %{_builddir}/scintilla/CMakeLists.txt
 cp %SOURCE2 %{_builddir}/scintilla/scintilla.pc.cmake
 
 %build
-%{cmake}
-make
+%cmake
+%make_build
 
 %install
 pushd build
-%makeinstall_std
+%make_install
 popd
 
 %files -n %{libname}
