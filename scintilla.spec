@@ -11,7 +11,7 @@ Version: 	4.4.6
 Release: 	1
 License: 	BSD
 Group: 		Editors
-Url: 		http://www.scintilla.org/index.html
+Url: 		https://www.scintilla.org/index.html
 Source0:  https://www.scintilla.org/%{name}%{_version}.tgz
 #Source0: 	http://sourceforge.net/project/scintilla/scintilla%{_version}.tgz
 Source1:	scintilla.cmake
